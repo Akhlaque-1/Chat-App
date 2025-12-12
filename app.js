@@ -287,7 +287,7 @@ window.addEventListener("drop",(e)=> e.preventDefault());
 
   // initial welcome message when empty
   if(messages.length === 0){
-    addMessage({text: "Welcome to the WhatsApp-style demo. Send a message to start.", sender: "bot"});
+    addMessage({text: "Welcome, Send a message to start...", sender: "bot"});
   } else {
     renderAll();
   }
