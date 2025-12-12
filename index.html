@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WhatsApp-style Chat App — Pro</title>
+
+  <!-- Bootstrap (for grid & controls) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Top bar -->
+    <header class="topbar d-flex align-items-center justify-content-between px-3">
+      <div class="d-flex align-items-center gap-3">
+        <img src="https://i.pravatar.cc/40?img=7" alt="logo" class="brand-avatar rounded-circle">
+        <div>
+          <h5 class="app-title mb-0">WhatsApp • Pro Chat</h5>
+          <small class="text-muted" id="statusText">You are online</small>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center gap-2 controls">
+        <label class="theme-switch mb-0" title="Toggle dark mode">
+          <input id="themeToggle" type="checkbox">
+          <span class="slider"></span>
+        </label>
+        <select id="botSelect" class="form-select form-select-sm">
+          <option value="helper" selected>🤖 Helper</option>
+          <option value="funny">🎭 Funny</option>
+          <option value="info">📚 Info</option>
+        </select>
+        <button id="clearBtn" class="btn btn-outline-danger btn-sm">Clear</button>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="main-area d-flex">
+      <!-- Chat column -->
+      <section class="chat-col d-flex flex-column">
+        <div id="chatWindow" class="chat-window p-3"></div>
+
+        <!-- Typing indicator -->
+        <div id="typingIndicator" class="typing-indicator px-3" style="display:none;">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <small id="typingText" class="ms-2 text-muted">Bot is typing...</small>
+        </div>
+
+        <!-- Composer -->
+        <form id="composer" class="composer d-flex gap-2 align-items-center p-3">
+          <label class="attach-btn mb-0" title="Attach image">
+            📎
+            <input id="imageInput" type="file" accept="image/*" />
+          </label>
+          <input id="messageInput" type="text" class="form-control" placeholder="Type a message" autocomplete="off" />
+          <button id="sendBtn" type="submit" class="btn send-btn">Send</button>
+        </form>
+      </section>
+
+      <!-- Right sidebar (hidden on small screens) -->
+      <aside class="sidebar p-3 d-none d-md-block">
+        <div class="bot-info d-flex align-items-center gap-2 mb-3">
+          <img id="botAvatar" src="https://i.pravatar.cc/48?img=32" class="rounded-circle" alt="bot">
+          <div>
+            <strong id="botName">Helper</strong>
+            <div id="botDesc" class="text-muted small">Friendly helper bot</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <h6 class="mb-2">Quick Reactions</h6>
+          <div id="reactionList" class="d-flex gap-2 flex-wrap">
+            <button class="btn btn-light btn-sm reaction-sample">❤️</button>
+            <button class="btn btn-light btn-sm reaction-sample">😂</button>
+            <button class="btn btn-light btn-sm reaction-sample">👍</button>
+            <button class="btn btn-light btn-sm reaction-sample">😮</button>
+            <button class="btn btn-light btn-sm reaction-sample">😢</button>
+          </div>
+        </div>
+
+        <div class="mt-auto">
+          <h6 class="mb-1">Tips</h6>
+          <small class="text-muted">
+            Long-press (mobile) or right-click (desktop) a message to delete. Favorites & persist stored in your browser.
+          </small>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- App JS -->
+  <script src="app.js"></script>
+</body>
+</html>
